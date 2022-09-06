@@ -12,9 +12,9 @@
 // // //
 
 const fs = require('fs');
-const discord = require('discord.js');
+const { Client, GatewayIntentBits, Discord } = require('discord.js');
 
-import GatewayIntentBits from discord
+
 
 // // //
 
@@ -27,7 +27,7 @@ const prefix = process.env.PREFIX;
 
 //
 
-const client = new discord.Client({
+const Client = new Discord.Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
@@ -36,7 +36,7 @@ const client = new discord.Client({
 //
 
 
-client.login(token);
+Client.login(token);
 
 //
 
@@ -44,7 +44,7 @@ const clientFiles = fs.readdirSync(clientSystem).filter(file => file.endsWith('.
 
 for (const file of clientFiles) {
     const clientFile = require(clientSystem + '/' + file)
-    clientFile(client);
+    clientFile(Client);
 }
 
 //const clientFilesMjs = fs.readdirSync(clientSystem + '/Mjs').filter(file => file.endsWith('.mjs'));
