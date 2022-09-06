@@ -14,6 +14,8 @@
 const fs = require('fs');
 const discord = require('discord.js');
 
+import GatewayIntentBits from discord
+
 // // //
 
 const clientSystem = './System/Client';
@@ -25,9 +27,12 @@ const prefix = process.env.PREFIX;
 
 //
 
-const client = new discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
-
-
+const client = new discord.Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+  ]
+})
 //
 
 
