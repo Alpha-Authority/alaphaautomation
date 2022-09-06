@@ -12,7 +12,7 @@
 // // //
 
 const fs = require('fs');
-const { Client, GatewayIntentBits, Discord } = require('discord.js');
+const { Client, GatewayIntentBits } = require('discord.js');
 
 
 
@@ -27,7 +27,7 @@ const prefix = process.env.PREFIX;
 
 //
 
-const Client = new Discord.Client({
+const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
@@ -36,7 +36,7 @@ const Client = new Discord.Client({
 //
 
 
-Client.login(token);
+client.login(token);
 
 //
 
@@ -44,7 +44,7 @@ const clientFiles = fs.readdirSync(clientSystem).filter(file => file.endsWith('.
 
 for (const file of clientFiles) {
     const clientFile = require(clientSystem + '/' + file)
-    clientFile(Client);
+    clientFile(client);
 }
 
 //const clientFilesMjs = fs.readdirSync(clientSystem + '/Mjs').filter(file => file.endsWith('.mjs'));
