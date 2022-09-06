@@ -14,11 +14,13 @@
     "@discordjs/rest": "^1.0.1",
     "axios": "^0.27.2",
     "bloxy": "^5.0.34",
-    "discord.js": "^12.5.3",
+    "discord.js": "^14.3.0",
     "express": "^4.17.1",
     "firebase-admin": "^10.3.0",
     "noblox.js": "^4.7.3",
-    "nvm": "0.0.4",
-    "server.js": "^1.0.0"
+    "nvm": "^0.0.4",
+    "request": "^2.88.2",
+    "server.js": "^1.0.0",
+    "uuid": "^9.0.0"
   }
 }
