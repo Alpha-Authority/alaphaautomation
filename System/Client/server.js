@@ -1,37 +1,16 @@
-'use strict';
+const express = require('express')
+const app = express()
 
-const express = require('express');
-const path = require('path');
-const { createServer } = require('http');
+app.use(function (req, res, next) {
+  res.send('Running!')
+})
 
-const WebSocket = require('ws');
-
-const app = express();
-app.use(express.static(path.join(__dirname, '/public')));
-
-const server = createServer(app);
-const wss = new WebSocket.Server({ server });
-
-wss.on('connection', function (ws) {
-  const id = setInterval(function () {
-    ws.send(JSON.stringify(process.memoryUsage()), function () {
-      //
-      // Ignoring errors.
-      //
-    });
-  }, 100);
-  console.log('started client interval');
-
-  ws.on('close', function () {
-    console.log('stopping client interval');
-    clearInterval(id);
-  });
-});
-
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 function keepAlive() { 
-  server.listen(8080, function () {
-    console.log('Listening on http://0.0.0.0:8080');
-  });
+    app.listen(3000, ()=>{console.log("Server is Ready!")});
 }
 
 module.exports = keepAlive;
+
