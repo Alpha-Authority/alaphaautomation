@@ -10,7 +10,7 @@ function status(client) {
 		];
 
 		let i = 0;
-		setInterval(() => client.user.setActivity(process.env.PREFIX + `help | ${activities[i++ % activities.length]}`, { type: 'LISTENING' }), 15000);
+		setInterval(() => client.user.setActivity(`${process.env.PREFIX}help | ${activities[i++ % activities.length]}`, { type: 'LISTENING' }), 15000);
     });
 }
 
